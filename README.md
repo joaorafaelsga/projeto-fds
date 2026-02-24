@@ -16,9 +16,9 @@ O sistema proporcionará um acesso muito mais rápido, simples e intuitivo aos l
 </br></br>
 
 ## ⚙️  Gerenciador:
-a aplicação oferecerá maior controle sobre o acervo, permitindo acompanhar a disponibilidade dos livros, gerenciar solicitações e devoluções, e manter as informações organizadas e atualizadas de forma eficiente.
+A aplicação oferecerá maior controle sobre o acervo, permitindo acompanhar a disponibilidade dos livros, gerenciar solicitações e devoluções, e manter as informações organizadas e atualizadas de forma eficiente.
 
+</br>
 
-</br></br>
 ## 🧰  Ferramentas Utilizadas: 
 [![Python](https://img.shields.io/badge/Python-478061?style=for-the-badge&logo=python&logoColor=white)](#) [![Django](https://img.shields.io/badge/Django-478061?style=for-the-badge&logo=django&logoColor=white)](#) [![Jira](https://img.shields.io/badge/Jira-478061?style=for-the-badge&logo=jira&logoColor=fff)](#) [![GitHub](https://img.shields.io/badge/GitHub-478061?style=for-the-badge&logo=github&logoColor=white)](#)</br></br>
