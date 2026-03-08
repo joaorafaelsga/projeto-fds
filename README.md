@@ -16,9 +16,27 @@ O sistema proporcionará um acesso muito mais rápido, simples e intuitivo aos l
 </br></br>
 
 ## ⚙️  Gerenciador:
-A aplicação oferecerá maior controle sobre o acervo, permitindo acompanhar a disponibilidade dos livros, gerenciar solicitações e devoluções, e manter as informações organizadas e atualizadas de forma eficiente.
+a aplicação oferecerá maior controle sobre o acervo, permitindo acompanhar a disponibilidade dos livros, gerenciar solicitações e devoluções, e manter as informações organizadas e atualizadas de forma eficiente.
 
-</br>
 
+</br></br>
 ## 🧰  Ferramentas Utilizadas: 
-[![Python](https://img.shields.io/badge/Python-478061?style=for-the-badge&logo=python&logoColor=white)](#) [![Django](https://img.shields.io/badge/Django-478061?style=for-the-badge&logo=django&logoColor=white)](#) [![Jira](https://img.shields.io/badge/Jira-478061?style=for-the-badge&logo=jira&logoColor=fff)](#) [![GitHub](https://img.shields.io/badge/GitHub-478061?style=for-the-badge&logo=github&logoColor=white)](#)</br></br>
+[![Python](https://img.shields.io/badge/Python-478061?style=for-the-badge&logo=python&logoColor=white)](#) [![Django](https://img.shields.io/badge/Django-478061?style=for-the-badge&logo=django&logoColor=white)](#) [![Jira](https://img.shields.io/badge/Jira-478061?style=for-the-badge&logo=jira&logoColor=fff)](#) [![GitHub](https://img.shields.io/badge/GitHub-478061?style=for-the-badge&logo=github&logoColor=white)](#)
+
+
+</br></br>
+## Entregas:
+
+### Entrega 1 - 09/03/2026
+
+Backlog:
+![Backlog](https://i.ibb.co/HDTFK4WG/Captura-de-tela-2026-03-08-201604.png)
+
+Tela de Log in:
+![telaLogin](https://i.ibb.co/6RVqCPVJ/Captura-de-tela-2026-03-08-203453.png)
+
+Tela Principal: (Protótipo)
+![telaPrincipal](https://i.ibb.co/Gv6TrNCn/Captura-de-tela-2026-03-08-203824.png)
+
+Tela de catálogo: (Protótipo)
+![telaCatalogo](https://i.ibb.co/gLDvnZcS/Captura-de-tela-2026-03-08-203836.png)
