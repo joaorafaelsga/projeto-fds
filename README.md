@@ -40,3 +40,7 @@ Tela Principal: (Protótipo)
 
 Tela de catálogo: (Protótipo)
 ![telaCatalogo](https://i.ibb.co/gLDvnZcS/Captura-de-tela-2026-03-08-203836.png)
+
+Video de apresentação:
+
+[![Video ReadMe](https://img.youtube.com/vi/FaiLLsxP2a4/default.jpg)](https://youtu.be/FaiLLsxP2a4)
