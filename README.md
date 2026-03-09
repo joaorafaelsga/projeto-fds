@@ -32,7 +32,7 @@ a aplicação oferecerá maior controle sobre o acervo, permitindo acompanhar a 
 Backlog:
 ![Backlog](https://i.ibb.co/HDTFK4WG/Captura-de-tela-2026-03-08-201604.png)
 
-Tela de Log in:
+Tela de Log in: (Protótipo)
 ![telaLogin](https://i.ibb.co/6RVqCPVJ/Captura-de-tela-2026-03-08-203453.png)
 
 Tela Principal: (Protótipo)
