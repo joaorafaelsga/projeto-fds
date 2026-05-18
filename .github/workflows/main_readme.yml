@@ -7,13 +7,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  test:
     runs-on: ubuntu-latest
 
-    permissions:
-      id-token: write
-      contents: read
-      
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - uses: actions/checkout@v4
 
@@ -27,7 +38,38 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-                
+
+      - name: Run unit tests
+        working-directory: ./project
+        env:
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
+          SECRET_KEY: test-secret-key-for-ci-only
+          DEBUG: True
+        run: |
+          python manage.py test biblioteca.tests --verbosity=2
+
+  build-and-deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python version
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        working-directory: ./project
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -41,4 +83,3 @@ jobs:
           app-name: 'readme'
           slot-name: 'Production'
           package: ./project
-          

@@ -159,6 +159,14 @@ class PaginaMenuTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.url = reverse("menu")
+        self.auth_user = User.objects.create_user(username="menu_user", password="senha123")
+        Usuario.objects.create(
+            id_autenticado=self.auth_user,
+            nome="Menu User",
+            email="menu@email.com",
+            matricula="M001"
+        )
+        self.client.login(username="menu_user", password="senha123")
         self.livro = Livro.objects.create(
             titulo="Dom Casmurro", autor="Machado de Assis", isbn="001"
         )
@@ -209,6 +217,14 @@ class PaginaCatalogoTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.url = reverse("catalogo")
+        self.auth_user = User.objects.create_user(username="cat_user", password="senha123")
+        Usuario.objects.create(
+            id_autenticado=self.auth_user,
+            nome="Cat User",
+            email="cat@email.com",
+            matricula="C001"
+        )
+        self.client.login(username="cat_user", password="senha123")
         self.livro1 = Livro.objects.create(
             titulo="O Cortico", autor="Aluisio Azevedo", isbn="002", disponivel=True
         )
@@ -339,11 +355,12 @@ class PaginaMeusLivrosTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.url = reverse("meusLivros")
-        auth_user = User.objects.create_user(username="pedro", password="senha123")
+        self.auth_user = User.objects.create_user(username="pedro", password="senha123")
         self.usuario = Usuario.objects.create(
-            id_autenticado=auth_user,
+            id_autenticado=self.auth_user,
             nome="Pedro", email="pedro@email.com", matricula="2024003"
         )
+        self.client.login(username="pedro", password="senha123")
         self.livro = Livro.objects.create(
             titulo="Grande Sertao Veredas", autor="Guimaraes Rosa", isbn="006"
         )
@@ -401,7 +418,16 @@ class PaginaMeusLivrosTest(TestCase):
 class PaginaProfDisciplinaCategoriaTest(TestCase):
     def setUp(self):
         self.client = Client()
-        self.url = reverse("profDiciplinaCategoria")
+        self.url = reverse("profdisciplinacategoria")
+        self.auth_user = User.objects.create_user(username="prof", password="senha123")
+        Usuario.objects.create(
+            id_autenticado=self.auth_user,
+            nome="Professor",
+            email="prof@email.com",
+            matricula="P001",
+            is_professor=True
+        )
+        self.client.login(username="prof", password="senha123")
 
     # --- Carregamento ---
     def test_pagina_carrega(self):
