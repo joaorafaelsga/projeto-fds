@@ -155,3 +155,36 @@ Nessa entrega, como a equipe já demonstrava maior domínio tanto sobre o Django
 - Atualização no JIRA
 
 A comunicação e estratégia de desenvolvimento entre membros de uma mesma equipe, continuou com a mesma lógica utilizada na entrega anterior.
+
+---
+### Entrega 04 - 18/05/2026
+
+#### JIRA
+Sprint 04:
+![Sprint 04](https://i.ibb.co/pv18bSn7/image.png)
+
+Backlog:
+![Backlog](https://i.ibb.co/93drzkL7/image.png)
+
+Link para o JIRA:</br>
+[Acesse aqui](https://pvcb-cesar.atlassian.net/jira/software/projects/FDS/boards/2/backlog)
+</br>
+
+#### Issues tracker (Github)
+
+Versão atualizada do Issue tracker, tendo todas as issues fechadas:
+![closed](https://i.ibb.co/MkkB6h2T/image.png)
+
+#### Testes de Sistema (E2E)
+Atualizamos os testes através do uso tanto do tests.py, quanto do testsUsuarios.py
+![testsUsuarios](https://i.ibb.co/NddP61Zx/image.png)
+
+Vídeo sobre os Testes de Sistema (E2E):
+</br>
+[Clique aqui para acessar o vídeo!](https://youtu.be/mtYsJ_e79dg)
+
+#### CI/CD (integração contínua / deployment contínuo)
+
+Para atender os requisitos de CI/CD nesta entrega, migramos o deploy do ReadMe. Saimos do PythonAnywhere e agora utilizamos a Azure, tendo as imagens hosteadas no Cloudinary e banco de dados PostgreSQL hosteados no Neon Database.
+
+[Clique aqui para acessar o vídeo!](https://youtu.be/9Fv3b2JzAqQ)

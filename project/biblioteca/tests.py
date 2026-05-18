@@ -283,6 +283,12 @@ class PaginaLivroTest(TestCase):
             isbn="005", quantidade=0, disponivel=False
         )
         self.user = User.objects.create_user(username="leitor", password="senha123")
+        self.usuario = Usuario.objects.create(
+            id_autenticado=self.user,
+            nome="Leitor Teste",
+            email="leitor@teste.com",
+            matricula="L001"
+        )
 
     def _url(self, livro):
         return reverse("livro", args=[livro.id])
@@ -345,6 +351,45 @@ class PaginaLivroTest(TestCase):
                 usuario=self.user, livro=self.livro_esgotado
             ).exists()
         )
+
+    # --- Reserva / Empréstimo ---
+    def test_reservar_livro_disponivel_cria_emprestimo(self):
+        self.client.login(username="leitor", password="senha123")
+        url = reverse("reservar_livro", args=[self.livro_disponivel.id])
+        response = self.client.post(url)
+        self.assertRedirects(response, reverse("meusLivros"))
+        self.assertTrue(
+            Emprestimo.objects.filter(
+                livro=self.livro_disponivel,
+                usuario=self.usuario,
+                devolvido=False
+            ).exists()
+        )
+        self.livro_disponivel.refresh_from_db()
+        self.assertEqual(self.livro_disponivel.quantidade, 1)
+        self.assertTrue(self.livro_disponivel.disponivel)
+
+    def test_reservar_livro_sem_login_redireciona(self):
+        url = reverse("reservar_livro", args=[self.livro_disponivel.id])
+        response = self.client.post(url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_reservar_livro_esgotado_falha(self):
+        self.client.login(username="leitor", password="senha123")
+        url = reverse("reservar_livro", args=[self.livro_esgotado.id])
+        response = self.client.post(url)
+        self.assertRedirects(response, reverse("livro", args=[self.livro_esgotado.id]))
+
+    def test_reservar_livro_ja_emprestado_redireciona(self):
+        Emprestimo.objects.create(
+            livro=self.livro_disponivel,
+            usuario=self.usuario,
+            dataDevolucao=date.today() + timedelta(days=7)
+        )
+        self.client.login(username="leitor", password="senha123")
+        url = reverse("reservar_livro", args=[self.livro_disponivel.id])
+        response = self.client.post(url)
+        self.assertRedirects(response, reverse("meusLivros"))
 
 
 
