@@ -188,3 +188,7 @@ Vídeo sobre os Testes de Sistema (E2E):
 Para atender os requisitos de CI/CD nesta entrega, migramos o deploy do ReadMe. Saimos do PythonAnywhere e agora utilizamos a Azure, tendo as imagens hosteadas no Cloudinary e banco de dados PostgreSQL hosteados no Neon Database.
 
 [Clique aqui para acessar o vídeo!](https://youtu.be/9Fv3b2JzAqQ)
+
+#### Entrega 04
+Video Screencast com o deployment das novas histórias:
+[Clique aqui para acessar o vídeo!](https://youtu.be/RKt8h0fcVXQ)
