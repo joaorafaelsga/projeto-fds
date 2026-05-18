@@ -191,4 +191,5 @@ Para atender os requisitos de CI/CD nesta entrega, migramos o deploy do ReadMe. 
 
 #### Entrega 04
 Video Screencast com o deployment das novas histórias:
+</br>
 [Clique aqui para acessar o vídeo!](https://youtu.be/RKt8h0fcVXQ)
