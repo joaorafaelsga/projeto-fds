@@ -27,7 +27,10 @@
             <div class="livro-botoes">
                 {% if livro.quantidade > 0 %}
                     <span class="tag disponivel">Disponível</span>
-                    <button class="btn-reservar">Reservar</button>
+                    <form method="post" action="{% url 'reservar_livro' livro.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-reservar">Reservar</button>
+                    </form>
                 {% else %}
                     <span class="tag reservado">Reservado</span>
 

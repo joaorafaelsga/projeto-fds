@@ -137,6 +137,42 @@ def livro(request, id):
     livro = Livro.objects.get(id=id)
     return render(request, 'biblioteca/livro.html', {'livro': livro})
 
+@login_required
+def reservar_livro(request, id):
+    livro = get_object_or_404(Livro, id=id)
+
+    if livro.quantidade <= 0 or not livro.disponivel:
+        messages.error(request, 'Este livro não está disponível para empréstimo.')
+        return redirect('livro', id=livro.id)
+
+    usuario = Usuario.objects.filter(id_autenticado=request.user).first()
+    if not usuario:
+        messages.warning(request, 'Seu usuário não possui cadastro de aluno vinculado.')
+        return redirect('cadastro')
+
+    emprestimo_existente = Emprestimo.objects.filter(
+        livro=livro,
+        usuario=usuario,
+        devolvido=False
+    ).first()
+
+    if emprestimo_existente:
+        messages.warning(request, 'Você já possui um empréstimo ativo para este livro.')
+        return redirect('meusLivros')
+
+    Emprestimo.objects.create(
+        livro=livro,
+        usuario=usuario
+    )
+
+    livro.quantidade -= 1
+    if livro.quantidade <= 0:
+        livro.disponivel = False
+    livro.save()
+
+    messages.success(request, f'Livro "{livro.titulo}" reservado com sucesso!')
+    return redirect('meusLivros')
+
 def meusLivros(request):
     if not request.user.is_authenticated:
         messages.warning(request, 'Faça login para acessar seus livros.')
