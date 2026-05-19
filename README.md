@@ -193,3 +193,6 @@ Para atender os requisitos de CI/CD nesta entrega, migramos o deploy do ReadMe. 
 Video Screencast com o deployment das novas histórias:
 </br>
 [Clique aqui para acessar o vídeo!](https://youtu.be/RKt8h0fcVXQ)
+
+#### Relato Programação em Par:
+Para essa entrega 04, seguimos com a aplicação de mesma estratégia utilizada na entrega 03 para a programação em par. Onde duplas escolheram quais histórias iriam implementar, desenvolveram as implementações em branchs separadas e solicitaram revisão de outra dupla para confirmar a segurança da realização de um merge na main branch.
